@@ -1,0 +1,158 @@
+{
+    "cod": "200",
+    "message": 0,
+    "cnt": 40,
+    "list": [
+        {
+            "dt": 1579446000,
+            "main": {
+                "temp": 3.64,
+                "feels_like": -0.59,
+                "temp_min": 3.64,
+                "temp_max": 3.74,
+                "pressure": 1035,
+                "sea_level": 1035,
+                "grnd_level": 1018,
+                "humidity": 81,
+                "temp_kf": -0.1
+            },
+            "weather": [
+                {
+                    "id": 804,
+                    "main": "Clouds",
+                    "description": "overcast clouds",
+                    "icon": "04d"
+                }
+            ],
+            "clouds": {
+                "all": 100
+            },
+            "wind": {
+                "speed": 3.35,
+                "deg": 325
+            },
+            "sys": {
+                "pod": "d"
+            },
+            "dt_txt": "2020-01-19 15:00:00"
+        },
+        {
+            "dt": 1579456800,
+            "main": {
+                "temp": 2.23,
+                "feels_like": -1.62,
+                "temp_min": 2.23,
+                "temp_max": 2.31,
+                "pressure": 1037,
+                "sea_level": 1037,
+                "grnd_level": 1020,
+                "humidity": 94,
+                "temp_kf": -0.08
+            },
+            "weather": [
+                {
+                    "id": 804,
+                    "main": "Clouds",
+                    "description": "overcast clouds",
+                    "icon": "04n"
+                }
+            ],
+            "clouds": {
+                "all": 100
+            },
+            "wind": {
+                "speed": 2.96,
+                "deg": 318
+            },
+            "sys": {
+                "pod": "n"
+            },
+            "dt_txt": "2020-01-19 18:00:00"
+        },
+        {
+            "dt": 1579467600,
+            "main": {
+                "temp": 3.05,
+                "feels_like": -1.04,
+                "temp_min": 3.05,
+                "temp_max": 3.1,
+                "pressure": 1039,
+                "sea_level": 1039,
+                "grnd_level": 1022,
+                "humidity": 89,
+                "temp_kf": -0.05
+            },
+            "weather": [
+                {
+                    "id": 500,
+                    "main": "Rain",
+                    "description": "light rain",
+                    "icon": "10n"
+                }
+            ],
+            "clouds": {
+                "all": 100
+            },
+            "wind": {
+                "speed": 3.31,
+                "deg": 300
+            },
+            "rain": {
+                "3h": 0.13
+            },
+            "sys": {
+                "pod": "n"
+            },
+            "dt_txt": "2020-01-19 21:00:00"
+        },
+        {
+            "dt": 1579478400,
+            "main": {
+                "temp": 1.89,
+                "feels_like": -2.57,
+                "temp_min": 1.89,
+                "temp_max": 1.92,
+                "pressure": 1041,
+                "sea_level": 1041,
+                "grnd_level": 1024,
+                "humidity": 93,
+                "temp_kf": -0.03
+            },
+            "weather": [
+                {
+                    "id": 500,
+                    "main": "Rain",
+                    "description": "light rain",
+                    "icon": "10n"
+                }
+            ],
+            "clouds": {
+                "all": 99
+            },
+            "wind": {
+                "speed": 3.73,
+                "deg": 316
+            },
+            "rain": {
+                "3h": 0.06
+            },
+            "sys": {
+                "pod": "n"
+            },
+            "dt_txt": "2020-01-20 00:00:00"
+        }
+    ],
+    "city": {
+        "id": 3081368,
+        "name": "Wroclaw",
+        "coord": {
+            "lat": 51.1,
+            "lon": 17.0333
+        },
+        "country": "PL",
+        "population": 9999,
+        "timezone": 3600,
+        "sunrise": 1579416359,
+        "sunset": 1579447102
+    }
+}

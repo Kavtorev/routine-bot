@@ -1,0 +1,43 @@
+{
+    "coord": {
+        "lon": 17.03,
+        "lat": 51.1
+    },
+    "weather": [
+        {
+            "id": 802,
+            "main": "Clouds",
+            "description": "scattered clouds",
+            "icon": "03d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 4.06,
+        "feels_like": -0.14,
+        "temp_min": 1.11,
+        "temp_max": 6.67,
+        "pressure": 1032,
+        "humidity": 86
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 3.6,
+        "deg": 320
+    },
+    "clouds": {
+        "all": 40
+    },
+    "dt": 1579439355,
+    "sys": {
+        "type": 1,
+        "id": 1715,
+        "country": "PL",
+        "sunrise": 1579416360,
+        "sunset": 1579447103
+    },
+    "timezone": 3600,
+    "id": 3081368,
+    "name": "Wroclaw",
+    "cod": 200
+}
