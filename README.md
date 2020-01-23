@@ -13,23 +13,22 @@ Basically, bot possess 4 functions:
   * informs whether there is rain today
   * shows the coldest temperature for today
   
-![Sample1](https://github.com/Kavtorev/telegram-bot/blob/master/screens/weather.png)
   
 * **Classes for today**:
   * informs user if he is late for any classes
   * if user has classes shows details
 
-![Sample2](https://github.com/Kavtorev/telegram-bot/blob/master/screens/classes%20for%20today.png)
 
 * **Upcoming classes**:
 
   Just shows info about classes for the this week and partly for the next one.
 
-![Sample3](https://github.com/Kavtorev/telegram-bot/blob/master/screens/upcoming%20classes.png)
 
 * **Plan your route** (**uncompleted**)
 
-  That function plans user's route to the university basing on time his classes start, it also takes into account if user is   late for some of his classes and adoptes to changings.
+  That function plans user's route to the university basing on time his classes start, it takes into account if user is      late for some of his classes and adoptes to changings. Also, "Plan your route" function invokes (Weather, Classes for today) decribed below and generally sends three messages (Routes, Classes, Weather). 
+  
+![Sample1](https://github.com/Kavtorev/telegram-bot/blob/master/screens/weather.png) ![Sample2](https://github.com/Kavtorev/telegram-bot/blob/master/screens/classes%20for%20today.png) ![Sample3](https://github.com/Kavtorev/telegram-bot/blob/master/screens/upcoming%20classes.png)
 
 ## Technologies
 * Python modules:
