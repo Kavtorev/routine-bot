@@ -22,7 +22,7 @@ Basically, bot possess 4 functions:
 
 * **Upcoming classes**:
 
-  Just shows info about classes for the this week and partly for the next one.
+  Just shows info about classes for the current week and partly for the next one.
 
 
 * **Plan your route** (**uncompleted**)
@@ -33,7 +33,7 @@ Basically, bot possess 4 functions:
 
 ### Authentication
 
-To use the bot, user should enter the "secret word", after he does and the word is valid script creates "user_id".json file to store data (see **Data Models** below) and adds user to a database ([SQL code](https://github.com/Kavtorev/telegram-bot/tree/master/src/sql)).
+To use the bot, user should enter the "secret word", after he does and the word is valid script creates "user_id".json file to store data (see **Data Models** below) and adds user to a database ([SQL code](https://github.com/Kavtorev/telegram-bot/tree/master/src/sql){:target="_blank"}).
 
 ![Sample](https://github.com/Kavtorev/telegram-bot/blob/master/screens/valid%20secret%20code.png)
 
@@ -48,21 +48,14 @@ Then user should enter LOGIN and PASSWORD from "Virtual Campus" to allow '[webdr
 
 **/start** - to open ReplyMarkUp (Main menu with available functions) and get description of how you can use offered options.
 
-
-
 ## Technologies
-* Python modules:
+* Python
   * selenium
   * requests
   * mysql-connector
 * SQL
 * [OpenWeatherAPI](https://openweathermap.org/api)
 * [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI)
-
-## Requirements
-Python 3.6 or later. 
-
-All requirements you can find in 'requirements.txt'.
 
 ## Data models
 This bot will store:
