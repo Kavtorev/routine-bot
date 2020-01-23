@@ -1,10 +1,20 @@
 # telegram-bot
 Bot that facilitates student's life.
-## Description
+## Idea and Purpose
 Waking up every morning I've noticed that I have a morning ritual.
 I go to the site of my University to check whether I have classes or not, I look at the weather forecast (is it a rainy day or what is the coldest temperature for today) and finally I look at the public transport schedule. 
 
 So, I came up with an idea: "**Why don't to create something that could do all those things instead of me?**".
+
+## Description
+Basically, bot possess 4 functions:
+* Weather:
+  * shows current weather in the city where I study
+  * informs whether there is rain today
+  * shows the coldest temperature for today
+  
+* Classes for today:
+  Shows 
 
 ## Technologies
 * Python modules:
@@ -59,7 +69,9 @@ An Example:
       
    "last_update": "2020-01-19",
    "missed_clss": 0
+}   
 ```
-* Details about current weather. Sample of server's respond you can find here: [Sample](https://openweathermap.org/current)
+* Details about current weather (current_weather.json). Sample of a server's respond you can find here: [Sample](https://openweathermap.org/current)
+* 5 day / 3 hour forecast (weather_forecast.json). [Sample](https://openweathermap.org/forecast5)
 
 
