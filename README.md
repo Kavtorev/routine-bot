@@ -17,6 +17,7 @@ Basically, bot possess 4 functions:
 * **Classes for today**:
   * informs user if he is late for any classes
   * if user has classes shows details
+  * if classes user is late for all classes - informs
 
 
 * **Upcoming classes**:
@@ -26,9 +27,16 @@ Basically, bot possess 4 functions:
 
 * **Plan your route** (**uncompleted**)
 
-  That function plans user's route to the university basing on time his classes start, it takes into account if user is      late for some of his classes and adoptes to changings. Also, "Plan your route" function invokes (Weather, Classes for today) decribed below and generally sends three messages (Routes, Classes, Weather). 
+  That function plans user's route to the university basing on time his classes start, it takes into account if user is      late for some of his classes and adoptes to changings. Also, "Plan your route" function invokes (Weather, Classes for today) decribed above and generally sends three messages (Routes, Classes, Weather). Planning of routes depends on whether there are classes or not, if not or user is late for all classes - function won't plan a route.
   
-![Sample1](https://github.com/Kavtorev/telegram-bot/blob/master/screens/weather.png) ![Sample2](https://github.com/Kavtorev/telegram-bot/blob/master/screens/classes%20for%20today.png) ![Sample3](https://github.com/Kavtorev/telegram-bot/blob/master/screens/upcoming%20classes.png)
+![Sample1](https://github.com/Kavtorev/telegram-bot/blob/master/screens/weather.png) ![Sample2](https://github.com/Kavtorev/telegram-bot/blob/master/screens/classes%20for%20today.png) ![Sample3](https://github.com/Kavtorev/telegram-bot/blob/master/screens/upcoming%20classes.png) ![Sample4](https://github.com/Kavtorev/telegram-bot/blob/master/screens/routes.png)
+
+### Authentication
+
+To use the bot, user should enter the "secret word", after he does and the word is valid script creates "user_id".json file to store data (see **Data Models** below) and adds user to a database ([SQL code](https://github.com/Kavtorev/telegram-bot/tree/master/src/sql)).
+
+Then user should enter LOGIN and PASSWORD from "Virtual Campus" to allow '[webdriver](https://www.guru99.com/introduction-webdriver-comparison-selenium-rc.html)' to scrape a web-page and to grab necessary data.
+
 
 ## Technologies
 * Python modules:
