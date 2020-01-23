@@ -1,4 +1,4 @@
-# telegram-bot
+# routine bot
 Bot that facilitates student's life.
 ## Idea and Purpose
 Waking up every morning I've noticed that I have a morning ritual.
