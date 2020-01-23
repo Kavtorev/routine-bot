@@ -35,7 +35,11 @@ Basically, bot possess 4 functions:
 
 To use the bot, user should enter the "secret word", after he does and the word is valid script creates "user_id".json file to store data (see **Data Models** below) and adds user to a database ([SQL code](https://github.com/Kavtorev/telegram-bot/tree/master/src/sql)).
 
+![Sample1](https://github.com/Kavtorev/telegram-bot/blob/master/screens/weather.png)
+
 Then user should enter LOGIN and PASSWORD from "Virtual Campus" to allow '[webdriver](https://www.guru99.com/introduction-webdriver-comparison-selenium-rc.html)' to scrape a web-page and to grab necessary data.
+
+
 
 
 ## Technologies
