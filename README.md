@@ -35,10 +35,18 @@ Basically, bot possess 4 functions:
 
 To use the bot, user should enter the "secret word", after he does and the word is valid script creates "user_id".json file to store data (see **Data Models** below) and adds user to a database ([SQL code](https://github.com/Kavtorev/telegram-bot/tree/master/src/sql)).
 
-![Sample1](https://github.com/Kavtorev/telegram-bot/blob/master/screens/weather.png)
+![Sample](https://github.com/Kavtorev/telegram-bot/blob/master/screens/valid%20secret%20code.png)
 
 Then user should enter LOGIN and PASSWORD from "Virtual Campus" to allow '[webdriver](https://www.guru99.com/introduction-webdriver-comparison-selenium-rc.html)' to scrape a web-page and to grab necessary data.
 
+![Sample1](https://github.com/Kavtorev/telegram-bot/blob/master/screens/login.png) ![Sample1](https://github.com/Kavtorev/telegram-bot/blob/master/screens/password.png)
+
+### Menus
+![Sample1](https://github.com/Kavtorev/telegram-bot/blob/master/screens/menus2.png) ![Sample1](https://github.com/Kavtorev/telegram-bot/blob/master/screens/menus1.png)
+
+### Commands
+
+**/start** - to open ReplyMarkUp (Main menu with available functions) and get description of how you can use offered options.
 
 
 
