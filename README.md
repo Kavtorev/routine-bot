@@ -7,7 +7,10 @@ I go to the site of my University to check whether I have classes or not, I look
 So, I came up with an idea: "**Why don't to create something that could do all those things instead of me?**".
 
 ## Description
-Basically, bot possess 4 functions:
+
+To implement the idea I used Web-scraping and some APIs. As far as 'Virtual Campus" of my university doesn't possess an API I had to use Web-scraping. The bot is functioning in [Telegram messanger](https://telegram.org/)
+
+Bot possess 4 functions:
 * **Weather**:
   * shows current weather in the city where I study
   * informs whether there is rain today
