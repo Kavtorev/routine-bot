@@ -51,15 +51,6 @@ Then user should enter LOGIN and PASSWORD from "Virtual Campus" to allow '[webdr
 
 **/start** - to open ReplyMarkUp (Main menu with available functions) and get description of how you can use offered options.
 
-## Technologies
-* Python
-  * selenium
-  * requests
-  * mysql-connector
-* SQL
-* [OpenWeatherAPI](https://openweathermap.org/api)
-* [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI)
-
 ## Data models
 This bot will store:
 * Information about classes of users and their transport schedule time:
