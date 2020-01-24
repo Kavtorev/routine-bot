@@ -8,7 +8,7 @@ So, I came up with an idea: "**Why don't to create something that could do all t
 
 ## Description
 
-To implement the idea I used Web-scraping and some APIs. As far as 'Virtual Campus" of my university doesn't possess an API I had to use Web-scraping. The bot is functioning in [Telegram messanger](https://telegram.org/)
+To implement the idea I used Web-scraping and some APIs. As far as 'Virtual Campus" of my university doesn't possess an API I had to use Web-scraping. The bot is functioning in [Telegram messanger](https://telegram.org/).
 
 Bot possess 4 functions:
 * **Weather**:
