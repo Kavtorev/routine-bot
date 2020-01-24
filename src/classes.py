@@ -50,6 +50,9 @@ class Base:
 	
 	@staticmethod
 	def def_the_limit(time):
+		"""
+		Defines time limits (range: beginning of classes - ending)
+		"""
 		time_index = time.hour // 3
 		if time.minute >= 30: time_index += 1
 		return time_index
@@ -90,8 +93,8 @@ class Transport:
 	subtracted_time = datetime.strptime("1:10", "%H:%M") #approximate_time_travel_min + (tram_frequency * 2)
 
 	def __init__(self):
-		self.start_point = "Fryderyka Pautscha 5/7"
-		self.end_point = "Aleksandra Ostrowskiego 22"
+		self.start_point = "your start point"
+		self.end_point = "your end point"
 		self.todays_date_1 = Base.current_date_and_time.strftime("%d.%m.%y")
 		self.transport_properties = ["Leave in", "Departure Time", "Arrival Time", "Travel Line"]
 	
@@ -109,8 +112,8 @@ class Transport:
 		
 		self.time = time_of_the_first_route
 		self.date = date
-		self.link = f"https://jakdojade.pl/wroclaw/trasa/z--Fryderyka-Pautscha-57--do--Aleksandra-Ostrowskiego-22?" + \
-				     "fn=Fryderyka%20Pautscha%205~2F7&tn=Aleksandra%20Ostrowskiego%2022&tc=51.0943:16.97487&fc=51.101216:17.099739&" + \
+		self.link = f"https://jakdojade.pl/wroclaw/trasa/z--*******************?" + \
+				     "fn=***********************%2022&tc=51.0943:16.97487&fc=51.101216:17.099739&" + \
 					f"ft=LOCATION_TYPE_ADDRESS&tt=LOCATION_TYPE_ADDRESS&d={self.date}&h={self.time}&aro=1&t=1&rc=3&ri=1&r=0"
 		driver.get(self.link)
 
@@ -133,6 +136,9 @@ class Transport:
 		confirm_button.click()
 
 	def get_route_info(self, driver):
+		"""
+		Function that scrapes data.
+		"""
 		time.sleep(5)
 		transport_schedule = {"routes":[]}
 		route_containers = driver.find_elements_by_css_selector("div.cn-route-header-content-container")
@@ -193,7 +199,9 @@ class Schedule:
 
 	@staticmethod
 	def open_schedule(driver, login, password):
-		
+		"""
+		Opens "Virtual Campus" for further scraping
+		"""
 		time.sleep(0.5)
 
 		login_ = driver.find_element_by_name("login")
@@ -212,6 +220,9 @@ class Schedule:
 		
 
 	def grab_data_from_schedule(self, driver):
+		"""
+		Algorithm that collects data using try/except blocks
+		"""
 		schedule_parts = {"classes" :[]}
 		row = 0
 		while True:
@@ -237,10 +248,12 @@ class Schedule:
 		return schedule_parts
 
 	def get_classes_for_tday(self, date, driver, login, password, user_id):
+		"""
+		Defines whether there are classes for today.
+		"""
 		data = self.get_schedule_time(driver, login, password, user_id)
 		for i, date_ in enumerate(data['classes']):
 			if date in date_:
-				# print("\nDate was found and you probably gonna learn something today!\n")
 				classes_for_today = data['classes'][i][date]
 				#json [{cl1}{cl2}{cl3}]
 				return classes_for_today
@@ -248,6 +261,9 @@ class Schedule:
 			return False
 
 	def not_late_for(self, classes_for_today):
+		"""
+		Filters classes that user is late for
+		"""
 		time = Base.current_date_and_time.time()
 		current_time = datetime.strptime(f"{time.hour}:{time.minute}", "%H:%M")
 		classes_you_are_not_late_for = classes_for_today[:]
@@ -270,6 +286,9 @@ class Schedule:
 		return False
 
 	def classes_to_visit(self, date, driver, login, password, user_id):
+		"""
+		Core function 
+		"""
 		classes_for_today = self.get_classes_for_tday(date, driver, login, password, user_id)
 		if classes_for_today:
 			classes_for_today = self.not_late_for(classes_for_today)

@@ -1,15 +1,8 @@
-"""
-
-Classes's properties
-
-"""
-
-
 university_web_site = 'https://service.handlowa.eu/Konto/LogowanieStudenta'
 
 
-longitude = 17.03
-latitude = 51.1
+longitude = "user's longitude"
+latitude = "user's latitude"
 
 
 route_attributes = {"line-name" : "line-name", 

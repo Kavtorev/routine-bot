@@ -18,9 +18,9 @@ driver = Base.init_driver()
 schedule = Schedule()
 database = mysql.connector.connect(
     host="localhost",
-    user="root",
+    user="user_name",
     passwd=DATABASE_PASSWD,
-    db="USERS"
+    db="name of your databases"
 )
 cursor = database.cursor()
 bot = telebot.TeleBot(telegram_bot_token)
