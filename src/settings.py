@@ -1,8 +1,15 @@
+"""
+
+Classes's properties
+
+"""
+
+
 university_web_site = 'https://service.handlowa.eu/Konto/LogowanieStudenta'
 
 
-longitude = "user's longitude"
-latitude = "user's latitude"
+longitude = 17.03
+latitude = 51.1
 
 
 route_attributes = {"line-name" : "line-name", 
@@ -29,5 +36,6 @@ kbrd_emojis = {"login": b'\xF0\x9F\x94\x92'.decode() + "Enter LOGIN",
 
 json_properties = {"classes" : [], 
                    "routes" : [], 
-                   'last_update' : "", 
+                   "classes_update" : "",
+                   "transport_update" :"", 
                    "missed_clss" : None}
