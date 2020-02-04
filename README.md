@@ -87,8 +87,8 @@ An Example:
             "Travel Line": "4"
         }
       ],
-      
-   "last_update": "2020-01-19",
+   "classes_update": "2020-02-04",
+   "transport_update": "2020-02-04",
    "missed_clss": 0
 }   
 ```
