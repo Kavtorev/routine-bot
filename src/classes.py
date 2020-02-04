@@ -9,7 +9,9 @@ from secrets import weather_api_key
 from datetime import datetime, timedelta
 from settings import route_attributes, longitude, latitude, university_web_site
 
+
 class Base:
+
 	path = os.getcwd()
 	current_date_and_time = datetime.now()
 	current_date_and_time_format = current_date_and_time.strftime("%Y-%m-%d")
@@ -19,12 +21,12 @@ class Base:
 
 	@staticmethod
 	def serialize(data, user_id):
-		with open(f"users/{user_id}.json", 'w') as json_file:
-			json.dump(data, json_file, indent = 4)
+		with open(f"/home/dima/dev/telegram-project/users/{user_id}.json", 'w') as json_file:
+			json.dump(data, json_file, indent=4)
 
 	@staticmethod
 	def deserialize(user_id):
-		with open(f"users/{user_id}.json", 'r') as json_file:
+		with open(f"/home/dima/dev/telegram-project/users/{user_id}.json", 'r') as json_file:
 			data = json.load(json_file)
 		return data
 
@@ -59,11 +61,11 @@ class Base:
 
 	@staticmethod	
 	def time_difference(end_time, start_time, in_minutes = None):
-		start_time = timedelta(hours = start_time.hour, minutes = start_time.minute)
-		end_time = timedelta(hours = end_time.hour, minutes = end_time.minute)
-		difference_in_minutes = ((end_time - start_time).seconds) // 60
+		start_time = timedelta(hours=start_time.hour, minutes=start_time.minute)
+		end_time = timedelta(hours=end_time.hour, minutes=end_time.minute)
+		difference_in_minutes = (end_time - start_time.seconds) // 60
 
-		if in_minutes == True:
+		if in_minutes:
 			return difference_in_minutes
 		else:
 			hours = difference_in_minutes // 60
@@ -81,16 +83,20 @@ class Base:
 	def close_browser(driver):
 		driver.close()
 
+
 class User:
 	def __init__(self, login, password, user_id):
 		self.login = login
 		self.password = password
 		self.id = user_id
 
+
 class Transport:
+
 	approximate_time_travel_min = 46
 	tram_frequency_min = 12
-	subtracted_time = datetime.strptime("1:10", "%H:%M") #approximate_time_travel_min + (tram_frequency * 2)
+	# approximate_time_travel_min + (tram_frequency * 2)
+	subtracted_time = datetime.strptime("1:10", "%H:%M")
 
 	def __init__(self):
 		self.start_point = "your start point"
@@ -101,7 +107,7 @@ class Transport:
 	def get_transport_time(self, time_class_starts, date, driver, user_id, missed_clss):
 		try:
 			data = Base.deserialize(user_id)
-			if data['last_update'] == Base.current_date_and_time_format and data['routes'] != [] \
+			if data['transport_update'] == Base.current_date_and_time_format and data['routes'] != [] \
 																and data['missed_clss'] == missed_clss:
 				return data
 		except Exception as e:
@@ -112,8 +118,9 @@ class Transport:
 		
 		self.time = time_of_the_first_route
 		self.date = date
-		self.link = f"https://jakdojade.pl/wroclaw/trasa/z--*******************?" + \
-				     "fn=***********************%2022&tc=51.0943:16.97487&fc=51.101216:17.099739&" + \
+
+		#link redirecting to the site for scraping
+		self.link = f"https://jakdojade.pl/wroclaw/trasa/*************" + \
 					f"ft=LOCATION_TYPE_ADDRESS&tt=LOCATION_TYPE_ADDRESS&d={self.date}&h={self.time}&aro=1&t=1&rc=3&ri=1&r=0"
 		driver.get(self.link)
 
@@ -122,9 +129,8 @@ class Transport:
 		Transport.submit_button(driver)
 		data = self.get_route_info(driver)
 
-		Base.update_json(user_id, 
-						['routes', "missed_clss", "last_update"], 
-						[data['routes'], missed_clss, Base.current_date_and_time_format])
+		Base.update_json(user_id, ['routes', "missed_clss", "transport_update"], [data['routes'], missed_clss,
+							Base.current_date_and_time_format])
 		
 		Base.close_browser(driver)
 
@@ -141,7 +147,7 @@ class Transport:
 		"""
 		time.sleep(5)
 		transport_schedule = {"routes":[]}
-		route_containers = driver.find_elements_by_css_selector("div.cn-route-header-content-container")
+		route_containers = driver.find_elements_by_css_selector("div.cn-route-header-con	tent-container")
 
 		for route_number, route in enumerate(route_containers):
 			transport_schedule["routes"].append({})
@@ -168,17 +174,20 @@ class Transport:
 		#dict 'routes':[{r1}{r2}{r3}]
 		return transport_schedule
 
+
 class Schedule:
+
 	def __init__(self):
 		self.todays_date = Base.current_date_and_time.strftime("%Y-%m-%d")
 		self.classes_properties = ["subject", "start", "finish", "duration", "type_of_class"]
+		self.classes_you_are_late_for = []
 		self.missed_all = False
 		self.missed_a_few = False
 		
 	def get_schedule_time(self, driver, login, password, user_id):
 		try:
 			data = Base.deserialize(user_id)
-			if data['last_update'] == Base.current_date_and_time_format:
+			if data['classes_update'] == Base.current_date_and_time_format:
 				return data
 		except Exception as e:
 			print("Error: ", e)
@@ -192,8 +201,9 @@ class Schedule:
 		time.sleep(3)
 		
 		data = self.grab_data_from_schedule(driver)
-		Base.update_json(user_id, ['classes', 'last_update'], 
+		Base.update_json(user_id, ['classes', 'classes_update'], 
 						[data['classes'], Base.current_date_and_time_format])
+
 		#json file 'classes'
 		return data
 
@@ -214,10 +224,9 @@ class Schedule:
 		
 		try:
 			driver.find_element_by_link_text("Plany zajęć").click()
-		except:
+		except Exception:
 			driver.find_element_by_link_text("Plans for classes").click()
 		# driver.find_element_by_xpath('//*[@id="td_menu"]/ul[1]/li[5]/a').click()
-		
 
 	def grab_data_from_schedule(self, driver):
 		"""
@@ -226,23 +235,28 @@ class Schedule:
 		schedule_parts = {"classes" :[]}
 		row = 0
 		while True:
-			try:										
+			try:
+
 				date = driver.find_element_by_xpath(f'//*[@id="gridViewPlanyGrup_DXGroupRowExp{row}"]').text.split()[-2]
 				schedule_parts['classes'].append({date: []})
 				row += 1
 				while True:
 					class_info = {}
 					try:
+
 						class_ = driver.find_element_by_xpath(f'//*[@id="gridViewPlanyGrup_DXDataRow{row}"]')
 						prop = class_.find_elements_by_class_name("dxgv")[1:6]
 						prop.insert(0, prop.pop(3))
+
 						for index, prop_ in enumerate(prop):
 							class_info[self.classes_properties[index]] = prop_.text
 							
 						schedule_parts['classes'][-1][date].append(class_info)
 						row += 1
+
 					except Exception as e:
 						break
+						
 			except Exception as e:
 				break
 		return schedule_parts
@@ -266,9 +280,9 @@ class Schedule:
 		"""
 		time = Base.current_date_and_time.time()
 		current_time = datetime.strptime(f"{time.hour}:{time.minute}", "%H:%M")
-		classes_you_are_not_late_for = classes_for_today[:]
-		self.classes_you_are_late_for = []
 		
+		classes_you_are_not_late_for = classes_for_today[:]
+
 		for class_ in classes_for_today:			
 			class_start_time = datetime.strptime(class_['start'], "%H:%M")
 			difference_in_minutes = Base.time_difference(class_start_time, current_time, True)
@@ -302,13 +316,16 @@ class Schedule:
 			return False			
 
 	def get_list_of_all_classes(self, driver, login, password, user_id):
+
 		data = self.get_schedule_time(driver, login, password, user_id)
 		list_to_return = [class_ for class_ in data['classes']]
+
 		#[{date:[{cl1 cl2}}, {date...}]
-		print(list_to_return)
 		return list_to_return
-			
+
+
 class Weather:
+
 	def __init__(self):
 		self.longitude = longitude
 		self.latitude = latitude
@@ -322,7 +339,7 @@ class Weather:
 		request = requests.get(self.forecast_link)
 		data = request.json()
 		upper_limit = (24 - Base.current_date_and_time.hour) // 3 + 1
-		data['list'] = data['list'][ :upper_limit]
+		data['list'] = data['list'][:upper_limit]
 		
 		self.rain = Weather.get_rain(data['list'])
 		self.the_coldest = Weather.get_the_coldest(data['list'])
@@ -333,9 +350,9 @@ class Weather:
 	@staticmethod
 	def get_rain(list_):
 		for time_gap in list_:
-			wDescription =  time_gap['weather'][-1]['description'].split()
-			if 'rain' in wDescription:
-				return ' '.join(wDescription)
+			w_description = time_gap['weather'][-1]['description'].split()
+			if 'rain' in w_description:
+				return ' '.join(w_description)
 		else:
 			return "No rain for today!"
 
