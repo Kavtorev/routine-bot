@@ -1,9 +1,3 @@
-"""
-
-Classes's properties
-
-"""
-
 
 university_web_site = 'https://service.handlowa.eu/Konto/LogowanieStudenta'
 

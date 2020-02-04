@@ -1,8 +1,6 @@
 {
-    "classes": [
-        {
-            "2020-01-20": [
-                {
+    "classes": [{
+            "2020-01-20": [{
                     "subject": "Programowanie obiektowe ",
                     "start": "8:15",
                     "finish": "9:00",
@@ -19,30 +17,25 @@
             ]
         },
         {
-            "2020-01-22": [
-                {
-                    "subject": "Matematyka dyskretna ",
-                    "start": "17:45",
-                    "finish": "20:15",
-                    "duration": "3h00m",
-                    "type_of_class": "\u0106w"
-                }
-            ]
+            "2020-01-22": [{
+                "subject": "Matematyka dyskretna ",
+                "start": "17:45",
+                "finish": "20:15",
+                "duration": "3h00m",
+                "type_of_class": "\u0106w"
+            }]
         },
         {
-            "2020-01-23": [
-                {
-                    "subject": "Podstawy techniki cyfrowej ",
-                    "start": "17:00",
-                    "finish": "18:30",
-                    "duration": "2h00m",
-                    "type_of_class": "Lab"
-                }
-            ]
+            "2020-01-23": [{
+                "subject": "Podstawy techniki cyfrowej ",
+                "start": "17:00",
+                "finish": "18:30",
+                "duration": "2h00m",
+                "type_of_class": "Lab"
+            }]
         },
         {
-            "2020-01-24": [
-                {
+            "2020-01-24": [{
                     "subject": "In\u017cynieria oprogramowania ",
                     "start": "8:15",
                     "finish": "9:45",
@@ -59,8 +52,7 @@
             ]
         }
     ],
-    "routes": [
-        {
+    "routes": [{
             "Leave in": "16:46",
             "Departure Time": "16:50",
             "Arrival Time": "17:22",
@@ -79,6 +71,7 @@
             "Travel Line": "4"
         }
     ],
-    "last_update": "2020-01-19",
+    "classes_update": "2020-02-04",
+    "transport_update": "2020-02-04",
     "missed_clss": 0
 }
